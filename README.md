@@ -13,17 +13,16 @@ points to the unzipped NDK.
 
 From the `rm-android-jni` project folder, generate the `Makefile` for the JNI:
 
-    $ cmake -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake \
-    -DANDROID_ABI=x86 app/cpp
+    $ cd app/cpp
+    $ cmake -DCMAKE_TOOLCHAIN_FILE=$NDK/build/cmake/android.toolchain.cmake -DANDROID_ABI=x86 .
 
 Generate the native library:
 
-    $ cd app/cpp
     $ make
-    $ cd ../..
 
 This will produce `libhello-jni.so` in `app/cpp`. Then:
 
+    $ cd ../..
     $ mkdir -p vendor/x86
     $ mv app/cpp/libhello-jni.so vendor/x86
 
